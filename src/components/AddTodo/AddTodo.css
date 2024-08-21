@@ -1,0 +1,32 @@
+.add-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 50px;
+}
+
+.add-wrapper button:hover {
+    background-color: #03b5c5;
+    color: white;
+  }
+
+.input {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    width: 450px;
+    padding: 0.5rem 1rem;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+button {
+    background-color: aqua;
+    border-radius: 70px;
+    padding: 0.5rem 1rem;
+    color: rgb(0, 0, 0);
+    font-weight: 700;
+    
+}

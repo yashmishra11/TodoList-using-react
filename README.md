@@ -4,7 +4,7 @@ A modern, feature-rich Todo application built with React and Vite, featuring a b
 
 ## 🌐 Live Demo
 
-Visit the live site: [todo-list-using-react-teal.vercel.app]((https://todo-list-using-react-7x7t.vercel.app/))
+Visit the live site: [todo-list-using-react-teal.vercel.app]([https://todo-list-using-react-7x7t.vercel.app/])
 
 ## ✨ Features
 

@@ -1,37 +1,61 @@
-import { useContext } from "react";
-import TodoContext from "../context/TodoContext";
 import Todo from "../Todo/Todo";
-import TodoDispatchContext from "../context/TodoDispatchContext";
+import { useEffect, useState } from "react";
+import { db, auth } from "../../firebase";
+import { collection, query, where, onSnapshot, deleteDoc, doc, updateDoc } from "firebase/firestore";
 
 function TodoList() {
-  const { list } = useContext(TodoContext);
-  const { dispatch } = useContext(TodoDispatchContext);
+  const [todos, setTodos] = useState([]);
 
-  function onFinished(todo, isFinished){
-    dispatch({ type: "finish_todo", payload: { todo, isFinished: isFinished } });
-  }
+  useEffect(() => {
+    if (!auth.currentUser) return;
 
-  function onDelete(todo){
-    dispatch({ type: "delete_todo", payload: {todo} });
-  }
+    const q = query(
+      collection(db, "todos"),
+      where("uid", "==", auth.currentUser.uid)
+    );
 
-  function onEdit(todo, todoText) {
-     dispatch({ type: "edit_todo", payload: {todo, todoText} });
-  }
+    const unsubscribe = onSnapshot(q, (snapshot) => {
+      const data = snapshot.docs.map(doc => ({
+        id: doc.id,
+        ...doc.data()
+      }));
+      setTodos(data);
+    });
+
+    return () => unsubscribe();
+  }, []);
+
+  const onDelete = async (id) => {
+    await deleteDoc(doc(db, "todos", id));
+  };
+
+  const onFinished = async (id, isFinished) => {
+    await updateDoc(doc(db, "todos", id), {
+      finished: isFinished
+    });
+  };
+
+  const onEdit = async (id, newText) => {
+    await updateDoc(doc(db, "todos", id), {
+      text: newText
+    });
+  };
 
   return (
     <div>
-        {
-            list.length > 0 && list.map((todo) => <Todo key = {todo.id} todoData = {todo.todoData} isFinished={todo.finished} 
-
-            changeFinished={(isFinished) => onFinished(todo, isFinished)}
-            onDelete={() => {onDelete(todo)}} 
-            onEdit={(todoText) => onEdit(todo, todoText)}
-
-              />)
-        }
+      {todos.length > 0 &&
+        todos.map((todo) => (
+          <Todo
+            key={todo.id}
+            todoData={todo.text}
+            isFinished={todo.finished}
+            changeFinished={(isFinished) => onFinished(todo.id, isFinished)}
+            onDelete={() => onDelete(todo.id)}
+            onEdit={(todoText) => onEdit(todo.id, todoText)}
+          />
+        ))}
     </div>
-  )
+  );
 }
 
 export default TodoList;

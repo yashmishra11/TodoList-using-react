@@ -3,7 +3,7 @@
 A modern Todo application built with React, Vite, and Firebase — featuring a dark theme with smooth animations.
 
 ## 🌐 Live Demo
-[https://todo-list-using-react-7x7t.vercel.app/]([https://todo-list-using-react-firebase.vercel.app/])
+[todo-app](https://todo-list-using-react-firebase.vercel.app/)
 
 ## ✨ Features
 - 🔐 **Auth** — Register & login with Firebase Authentication

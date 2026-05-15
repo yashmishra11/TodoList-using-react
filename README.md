@@ -2,9 +2,9 @@
 
 A modern Todo application built with React, Vite, and Firebase — featuring a dark theme with smooth animations.
 
-## 🌐 Live Demo at [todo-app](https://todo-list-using-react-firebase.vercel.app/)
+## Live Demo at [todo-app](https://todo-list-using-react-firebase.vercel.app/)
 
-## ✨ Features
+## Features
 - 🔐 **Auth** — Register & login with Firebase Authentication
 - ✅ **Add / Edit / Delete** tasks
 - ☑️ **Mark Complete** — with smooth animations
@@ -12,13 +12,13 @@ A modern Todo application built with React, Vite, and Firebase — featuring a d
 - 🎨 **Dark UI** — glassmorphism, gradients, and transitions
 - 📱 **Responsive** — works on desktop and mobile
 
-## 🛠️ Tech Stack
+## Tech Stack
 - **React + Vite**
 - **Firebase** (Auth + Firestore)
 - **React Context + useReducer**
 - **CSS3** with Google Fonts (Inter, Space Grotesk)
 
-## 🚀 Getting Started
+## Getting Started
 
 ```bash
 git clone https://github.com/yashmishra11/Todolist-using-react.git
@@ -29,7 +29,7 @@ npm run dev
 
 > Requires a Firebase project. Add your config to `src/firebase.js`.
 
-## 📋 Project Structure
+## Project Structure
 ```
 src/
 ├── components/
@@ -44,7 +44,7 @@ src/
 └── index.css
 ```
 
-## 📧 Contact
+## Contact
 **Yash Mishra** — [LinkedIn](https://www.linkedin.com/in/yash-mishra-7b072224a/) · [GitHub](https://github.com/yashmishra11) · [Portfolio](https://portfolio-vert-eight-34.vercel.app/)
 
 ---
